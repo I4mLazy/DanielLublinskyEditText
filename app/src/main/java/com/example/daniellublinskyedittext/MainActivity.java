@@ -7,6 +7,8 @@ import android.widget.ImageView;
 import android.widget.Button;
 import android.os.Bundle;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity
 {
     TextView one;
@@ -24,8 +26,11 @@ public class MainActivity extends AppCompatActivity
     Button odin;
     Button dva;
     Button tri;
-
     Button chitiri;
+    int rannum1;
+    int rannum2;
+    int sum;
+    Random rand = new Random();
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -47,5 +52,16 @@ public class MainActivity extends AppCompatActivity
         dva = findViewById(R.id.dva);
         tri = findViewById(R.id.tri);
         chitiri = findViewById(R.id.chitiri);
+
+        rannum1 = rand.nextInt(89) + 10;
+        rannum2 = rand.nextInt(89) + 10;
+
+        one.setText(rannum1+"");
+        four.setText(rannum2+"");
     }
+
+
+
+
+
 }
