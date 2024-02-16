@@ -1,6 +1,8 @@
 package com.example.daniellublinskyedittext;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.view.View;
 import android.widget.TextView;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -29,7 +31,8 @@ public class MainActivity extends AppCompatActivity
     Button chitiri;
     int rannum1;
     int rannum2;
-    int sum;
+    int sum = 0;
+    int count = 0;
     Random rand = new Random();
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -53,6 +56,7 @@ public class MainActivity extends AppCompatActivity
         tri = findViewById(R.id.tri);
         chitiri = findViewById(R.id.chitiri);
 
+
         rannum1 = rand.nextInt(89) + 10;
         rannum2 = rand.nextInt(89) + 10;
 
@@ -61,7 +65,57 @@ public class MainActivity extends AppCompatActivity
     }
 
 
+    public void checkodin(View view)
+    {
+        String ans = a.getText().toString();
 
+        if(count == 0)
+        {
+            count ++;
+            if(rannum1 + rannum2== Integer.parseInt(ans))
+            {
+                I.setVisibility(view.VISIBLE);
+                I.setImageResource(R.drawable.greentick);
+                sum++;
+            }
+            else
+            {
+                I.setVisibility(view.VISIBLE);
+                I.setImageResource(R.drawable.redx);
+            }
+            rannum1 = rand.nextInt(89) + 10;
+            rannum2 = rand.nextInt(89) + 10;
 
+            two.setText(rannum1+"");
+            five.setText(rannum2+"");
+        }
 
+    }
+
+    public void checkdva(View view)
+    {
+        String ans = b.getText().toString();
+
+        if(count == 1)
+        {
+            count ++;
+            if(rannum1 + rannum2== Integer.parseInt(ans))
+            {
+                II.setVisibility(view.VISIBLE);
+                II.setImageResource(R.drawable.greentick);
+                sum++;
+            }
+            else
+            {
+                II.setVisibility(view.VISIBLE);
+                II.setImageResource(R.drawable.redx);
+            }
+            rannum1 = rand.nextInt(89) + 10;
+            rannum2 = rand.nextInt(89) + 10;
+
+            three.setText(rannum1+"");
+            six.setText(rannum2+"");
+        }
+
+    }
 }
