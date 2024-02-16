@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Button;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -83,7 +84,7 @@ public class MainActivity extends AppCompatActivity
                 I.setVisibility(view.VISIBLE);
                 I.setImageResource(R.drawable.redx);
             }
-            rannum1 = rand.nextInt(89) + 10;
+            rannum1 = rannum1 + rannum2;
             rannum2 = rand.nextInt(89) + 10;
 
             two.setText(rannum1+"");
@@ -110,12 +111,58 @@ public class MainActivity extends AppCompatActivity
                 II.setVisibility(view.VISIBLE);
                 II.setImageResource(R.drawable.redx);
             }
-            rannum1 = rand.nextInt(89) + 10;
+            rannum1 = rannum1 + rannum2;
             rannum2 = rand.nextInt(89) + 10;
 
             three.setText(rannum1+"");
             six.setText(rannum2+"");
         }
+
+    }
+
+    public void checktri(View view)
+    {
+        String ans = c.getText().toString();
+
+        if(count == 2)
+        {
+            count ++;
+            if(rannum1 + rannum2== Integer.parseInt(ans))
+            {
+                III.setVisibility(view.VISIBLE);
+                III.setImageResource(R.drawable.greentick);
+                sum++;
+            }
+            else
+            {
+                III.setVisibility(view.VISIBLE);
+                III.setImageResource(R.drawable.redx);
+            }
+        }
+        int score = sum/3 * 100;
+        Toast.makeText(MainActivity.this, (sum+ "/3, " +score+ "%"), Toast.LENGTH_LONG).show();
+        chitiri.setVisibility(view.VISIBLE);
+    }
+
+    public void newgame(View view)
+    {
+        sum = 0;
+        count = 0;
+        I.setVisibility(view.INVISIBLE);
+        II.setVisibility(view.INVISIBLE);
+        III.setVisibility(view.INVISIBLE);
+        rannum1 = rand.nextInt(89) + 10;
+        rannum2 = rand.nextInt(89) + 10;
+
+        one.setText(rannum1+"");
+        four.setText(rannum2+"");
+        two.setText("");
+        three.setText("");
+        five.setText("");
+        six.setText("");
+        a.setText(null);
+        b.setText(null);
+        c.setText(null);
 
     }
 }
